@@ -9,6 +9,7 @@ const openai = new OpenAI({
 
 app.use(express.json());
 
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'Server is running' });
 });
