@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 require('dotenv').config();
 const express = require('express');
 const { OpenAI } = require('openai');
@@ -188,11 +189,4 @@ app.post('/api/generate-learning-path', async (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-  console.log('Available endpoints:');
-  console.log(`  GET  http://localhost:${port}/health`);
-  console.log(`  POST http://localhost:${port}/api/chat`);
-  console.log(`  POST http://localhost:${port}/api/generate-questions`);
-  console.log(`  POST http://localhost:${port}/api/generate-learning-path`);
-});
+module.exports = serverless(app);
